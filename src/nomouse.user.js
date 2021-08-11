@@ -2,6 +2,10 @@
 // ==UserScript==
 // @name NoMouse
 // @namespace https://github.com/aphexcreations/nomouse
+// @inject-into content
+// @run-at document-idle
+// @grant GM_getValue
+// @grant GM_setValue
 // @description
 //     Intuitive keyboard browsing. Windows users: hit
 //     SHIFT+SPACEBAR to activate. OSX users: hit OPTION
@@ -25,6 +29,9 @@
 
     /**
      * KeyCommander
+     *
+     * @author BrendonCrawford
+     * @created 2007-06-01
      */
     kc = {};
     kc.stackWiper = null;
@@ -247,13 +254,13 @@
             kc.pushStack(action.name, action);
             kc.dispatch(action, 'down', e);
         }
-        else if (e.type === 'keypress' && action.found) {
+        else if ((e.type === 'keypress' || e.type === 'keydown') && action.found) {
             if (!kc.searchStack({name: action.name})) {
                 kc.pushStack(action.name, action);
                 kc.dispatch(action, 'down', e);
             }
             else {
-                kc.dispatch(action, 'press', e);     
+                kc.dispatch(action, 'press', e);
             }
         }
         else if (e.type === 'keyup') {
@@ -302,14 +309,14 @@
             if (arr.concat) {
                 temp = [];
                 for (i = 0, _i = arr.length; i < _i; i++) {
-                    temp[i] = arguments.callee(arr[i]);
+                    temp[i] = kc.clone(arr[i]);
                 }
             }
             else {
                 temp = {};
                 for (i in arr) {
                     if (arr.hasOwnProperty(i)) {
-                        temp[i] = arguments.callee(arr[i]);
+                        temp[i] = kc.clone(arr[i]);
                     }
                 }
             }
