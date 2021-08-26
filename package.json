@@ -1,0 +1,25 @@
+{
+  "name": "nomouse",
+  "version": "0.3.0",
+  "description": "Intuitive keyboard browsing",
+  "scripts": {
+    "build": "tsc && uglifyjs --config-file uglify.json --output dist/nomouse.user.js build/*.js",
+    "lint": "eslint --config .eslintrc.json --ext ts src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aphexcreations/nomouse.git"
+  },
+  "author": "Brendon Crawford",
+  "bugs": {
+    "url": "https://github.com/aphexcreations/nomouse/issues"
+  },
+  "homepage": "https://github.com/aphexcreations/nomouse#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "4.29.3",
+    "@typescript-eslint/parser": "4.29.3",
+    "eslint": "7.32.0",
+    "typescript": "4.3.5",
+    "uglify-js": "3.14.1"
+  }
+}

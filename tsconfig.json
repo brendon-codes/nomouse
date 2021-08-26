@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES5",
+    "noImplicitAny": true,
+    "removeComments": false,
+    "outDir": "build",
+    "sourceMap": false,
+    "strict": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "lib": [
+      "ES2020",
+      "DOM"
+    ]
+  },
+  "include": ["src/**/*.ts"]
+}
