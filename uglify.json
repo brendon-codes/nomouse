@@ -1,0 +1,8 @@
+{
+  "compress": {},
+  "keep_fnames": true,
+  "output": {
+    "comments": "/^\/*!/",
+    "max_line_len": 120
+  }
+}
